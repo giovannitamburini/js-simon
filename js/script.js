@@ -57,7 +57,7 @@ activeElement.addEventListener('click', function(){
     // - faccio partire un timer di 10 secondi
     // - allo scadere del timer i numeri scompaiono
     // - allo scadere del timer appaino 5 campi di input all'interno dei quali l'utente dovrà inserire i 5 numeri generati
-    setTimeout (createInput, 1000);
+    setTimeout (createInput, 10000);
 
 });
 
