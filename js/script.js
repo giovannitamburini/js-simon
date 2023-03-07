@@ -97,6 +97,7 @@ function addNumbers (randomNumber, container) {
     // - creo e appendo un elemento nel Dom in cui è inserito il numero generato
     let newNumber = document.createElement('div');
     newNumber.innerHTML = randomNumber;
+    newNumber.style.fontSize = '1.3em';
     container.append(newNumber);
 }
 
@@ -105,6 +106,8 @@ function createInput () {
 
     // - inserisco un messaggio sopra i campi di input in cui andrò ad inserire le risposte
     containerRandomElement.innerHTML = 'Inserisci i numeri';
+    containerRandomElement.style.flexDirection = 'column';
+    containerRandomElement.style.fontSize = '1.5em';
 
     // - creo un ciclo che genera i campi di input
     for (i = 0; i < 5; i++) {
@@ -113,6 +116,8 @@ function createInput () {
         let newInput = document.createElement('input');
         newInput.placeholder = 'number ' + (i + 1);
         newInput.type = 'number';
+        newInput.style.display = 'block';
+        newInput.style.fontSize = '0.9em';
         containerRandomElement.append(newInput);
 
     }
@@ -133,6 +138,9 @@ function controlNumber(newButton, index, array, containerRandomElement) {
     // - creo un evento click nel bottone creato per memorizzare i valori inseriti nel campo input nella funzione sopracitata
     newButton.addEventListener('click', function(){
 
+        // - elimino la possibilità di ricliccare il tasto per controllare il punteggio
+        newButton.classList.add('inactive');
+
         // - creo un contatore per uscire per il ciclo while
         contatore = 0;
 
@@ -150,6 +158,7 @@ function controlNumber(newButton, index, array, containerRandomElement) {
                 // - creo e appendo un elemento nel Dom in cui è inserito il responso della presenza del numero
                 let response = document.createElement('div');
                 response.innerHTML = containerRandomElement.childNodes[contatore + 1].value + ' è presente';
+                response.style.color = 'green';
                 containerRandomElement.append(response);
 
                 // - aumento il contatore delle coincidenze
@@ -161,6 +170,7 @@ function controlNumber(newButton, index, array, containerRandomElement) {
                 // - creo e appendo un elemento nel Dom in cui è inserito il responso della presenza del numero
                 let response = document.createElement('div');
                 response.innerHTML = containerRandomElement.childNodes[contatore + 1].value + ' non è presente';
+                response.style.color = 'red';
                 containerRandomElement.append(response);
             }
 
@@ -183,7 +193,7 @@ function controlNumber(newButton, index, array, containerRandomElement) {
             
             // - creo e appendo un elemento nel Dom in cui è inserito il punteggio raggiunto
             let score = document.createElement('div');
-            score.innerHTML = 'il tuo punteggio è ' + positive;
+            score.innerHTML = 'IL TUO PUNTEGGIO: ' + positive;
             containerRandomElement.append(score);
         }
     })

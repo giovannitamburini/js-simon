@@ -3,6 +3,40 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: lightgrey;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 1em;
+}
+
+#active {
+    text-align: center;
+    display: block;
+    padding: 1em;
+    margin: 1em auto;
+}
+
+#container-random {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: start;
+    gap: 1em;
+    border: 2px solid black;
+    border-radius: 1em;
+    padding: 1em;
+    width: 90%;
+    margin: 0 auto;
+}
+
+#container-random button {
+    padding: 1em;
 }
 
 .inactive {
